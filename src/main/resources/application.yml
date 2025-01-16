@@ -1,0 +1,19 @@
+spring:
+  main:
+    web-application-type: none
+aws:
+  s3:
+    bucket: ${BUCKET_NAME}
+    region: ${REGION}
+    endpoint: https://s3.amazonaws.com/
+    path-style-access: true
+    access-key: ${AWS_ACCESS_KEY_ID}
+    secret-key: ${AWS_SECRET_ACCESS_KEY}
+    aws-session-token: ${AWS_SESSION_TOKEN}
+br.com.fiap.soat7:
+  redis-mid-url: ${REDIS_MID_URL}
+  upload:
+    s3-folder: videos/%s/%s/%s/
+    dir: ${SHARED_DISK}/%s/%s/%s/
+server:
+  port: 8080
