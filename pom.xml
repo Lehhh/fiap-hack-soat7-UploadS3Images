@@ -21,9 +21,6 @@
 	<developers>
 		<developer/>
 	</developers>
-	<build>
-		<finalName>app</finalName>
-	</build>
 	<scm>
 		<connection/>
 		<developerConnection/>
@@ -67,6 +64,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

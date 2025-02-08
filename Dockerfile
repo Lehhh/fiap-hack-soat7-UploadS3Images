@@ -14,9 +14,9 @@ RUN curl https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.
     rm -rf apache-maven-3.9.6-bin.tar.gz &&\
     cd /opt/code/ &&\
     mvn clean package -P "$APP_ENV" &&\
-    mv /opt/code/target/*.jar /opt/app/ &&\
-    mv /opt/app/*.jar /opt/app/app.jar &&\
+    mv /opt/code/target/app.jar /opt/app/ &&\
     rm -rfv /opt/code &&\
+    rm -rfv M2_HOME &&\
     chmod 777 -R /opt/app/
 
 ENTRYPOINT ["java","-jar","/opt/app/app.jar"]
