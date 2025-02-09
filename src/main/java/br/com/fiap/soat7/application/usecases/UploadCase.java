@@ -26,6 +26,8 @@ public class UploadCase implements CommandLineRunner {
 			log.info("Iniciando execução da fila de upload images");
 			uploadS3Service.uploadImage();
 		}
-		log.error("STEP Invalido: opcoes validas IMAGE,VIDEO");
+		else {
+			log.error("STEP Invalido: opcoes validas IMAGE,VIDEO");
+		}
 	}
 }

@@ -12,7 +12,7 @@ aws:
     aws-session-token: ${AWS_SESSION_TOKEN}
 br.com.fiap.soat7:
   step: ${STEP}
-  redis-mid-url: ${REDIS_MID_URL}
+  redis-mid-url: ${REDIS_MID_URL}/redis-message/
   upload:
     s3-folder: videos/%s/%s/%s/
     dir: ${SHARED_DISK}/%s/%s/%s/

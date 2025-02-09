@@ -27,7 +27,7 @@ public class UploadS3Service {
 			String videoId = values[1];
 			String version = values[3];
 			List<MultipartFile> multipartFiles = diskUtils.listFilesAsMultipartFile(Path.of(String.format(diskFolder, userId, videoId, version)));
-			List<MultipartFile> multipartFilesZip = multipartFiles.stream().filter(m -> m.getOriginalFilename().contains(".zip") && !m.getOriginalFilename().startsWith(".")).toList();
+			List<MultipartFile> multipartFilesZip = multipartFiles.stream().filter(m -> !m.getOriginalFilename().contains(".zip") && !m.getOriginalFilename().startsWith(".")).toList();
 			fileUploadService.uploadS3Video(userId, videoId, version, multipartFilesZip.get(0));
 		});
 	}
