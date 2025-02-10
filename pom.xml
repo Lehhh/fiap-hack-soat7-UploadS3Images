@@ -21,9 +21,9 @@
 	<developers>
 		<developer/>
 	</developers>
-	<build>
-		<finalName>app</finalName>
-	</build>
+<!--	<build>-->
+<!--		<finalName>app</finalName>-->
+<!--	</build>-->
 	<scm>
 		<connection/>
 		<developerConnection/>
@@ -91,6 +91,33 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.10</version>
+				<configuration>
+					<excludes>
+						<exclude>**/domain/enums/*</exclude>
+						<exclude>**/domain/dto/*</exclude>
+						<exclude>br/com/fiap/soat7/infrastructure/config/UploadToS3Properties.class</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
