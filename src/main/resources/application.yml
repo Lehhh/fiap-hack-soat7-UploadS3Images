@@ -11,7 +11,8 @@ aws:
     secret-key: ${AWS_SECRET_ACCESS_KEY}
     aws-session-token: ${AWS_SESSION_TOKEN}
 br.com.fiap.soat7:
-  redis-mid-url: ${REDIS_MID_URL}
+  step: ${STEP}
+  redis-mid-url: ${REDIS_MID_URL}/redis-message/
   upload:
     s3-folder: videos/%s/%s/%s/
     dir: ${SHARED_DISK}/%s/%s/%s/
