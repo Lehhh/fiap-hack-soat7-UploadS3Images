@@ -15,16 +15,16 @@ import java.nio.file.Paths;
 public class S3Uploader {
 
 	@Value("${aws.s3.bucket}")
-	private String bucket;
+	protected String bucket;
 
 	@Value("${aws.s3.endpoint}")
-	private String endpoint;
+	protected String endpoint;
 
 	@Value(("${br.com.fiap.soat7.upload.s3-folder}"))
-	private String s3Folder;
+	protected String s3Folder;
 
 	@Value("${br.com.fiap.soat7.upload.dir}")
-	private String diskFolder;
+	protected String diskFolder;
 
 
 	private final S3Client s3Client;
