@@ -4,6 +4,7 @@ import br.com.fiap.soat7.application.services.UploadS3Service;
 import br.com.fiap.soat7.domain.enums.Step;
 import br.com.fiap.soat7.infrastructure.config.UploadToS3Properties;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
