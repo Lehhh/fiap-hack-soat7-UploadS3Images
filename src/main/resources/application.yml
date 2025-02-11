@@ -1,6 +1,3 @@
-spring:
-  main:
-    web-application-type: none
 aws:
   s3:
     bucket: ${BUCKET_NAME}
