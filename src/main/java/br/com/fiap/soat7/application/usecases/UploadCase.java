@@ -20,7 +20,7 @@ public class UploadCase  {
 
 	@Scheduled(fixedDelay = 3000)
 	public void executeUploadVideoS3() throws Exception {
-		if (props.getStep().equals(Step.VIDEO.name())) {
+		if (props.getStep().equals(Step.VIDEO)) {
 			log.info("Iniciando execução da fila de upload videos");
 			uploadS3Service.uploadVideo();
 		}
