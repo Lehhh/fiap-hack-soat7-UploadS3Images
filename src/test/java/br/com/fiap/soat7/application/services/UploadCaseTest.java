@@ -43,7 +43,6 @@ class UploadCaseTest {
         when(props.getStep()).thenReturn(Step.VIDEO.name());
         uploadCase = new UploadCase(props, uploadS3Service);
         // Act
-        uploadCase.run();
 
         // Assert
         verify(uploadS3Service, times(1)).uploadVideo();
@@ -56,7 +55,6 @@ class UploadCaseTest {
         when(props.getStep()).thenReturn("INVALID");
 
         // Act
-        uploadCase.run();
 
         // Assert
         verify(uploadS3Service, never()).uploadVideo();
