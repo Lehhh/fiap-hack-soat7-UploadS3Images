@@ -20,16 +20,19 @@ public class UploadCase  {
 
 	@Scheduled(fixedDelay = 3000)
 	public void executeUploadVideoS3() throws Exception {
-		if (props.getStep().equals(Step.VIDEO.name())) {
-			log.info("Iniciando execução da fila de upload videos");
-			uploadS3Service.uploadVideo();
+		try {
+			if (props.getStep().equals(Step.VIDEO.name())) {
+				log.info("Iniciando execução da fila de upload videos");
+				uploadS3Service.uploadVideo();
+			} else if (props.getStep().equals(Step.IMAGE.name())) {
+				log.info("Iniciando execução da fila de upload images");
+				uploadS3Service.uploadImage();
+			} else {
+				log.error("STEP Invalido: opcoes validas IMAGE,VIDEO");
+			}
 		}
-		else if (props.getStep().equals(Step.IMAGE.name())) {
-			log.info("Iniciando execução da fila de upload images");
-			uploadS3Service.uploadImage();
-		}
-		else {
-			log.error("STEP Invalido: opcoes validas IMAGE,VIDEO");
+		catch (Exception e){
+			e.printStackTrace();
 		}
 	}
 }
