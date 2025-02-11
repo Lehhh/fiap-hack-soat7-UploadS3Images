@@ -40,16 +40,16 @@ jobs:
           aws ecr create-repository --repository-name ${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }} --region us-east-1
 
       - name: Build Docker image
-        run: docker build -t ${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.0 .
+        run: docker build -t ${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.1 .
 
       - name: Push Docker image to ECR
-        run: docker push ${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.0
+        run: docker push ${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.1
 
       - name: Replace image placeholder
-        run: sed -i 's|IMAGE_CORE_PLACEHOLDER|${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.0|g' .kube/app/app-deployment.yaml
+        run: sed -i 's|IMAGE_CORE_PLACEHOLDER|${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.1|g' .kube/app/app-deployment.yaml
 
       - name: Replace image placeholder
-        run: sed -i 's|IMAGE_CORE_PLACEHOLDER|${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.0|g' .kube/app/app-deployment-video.yaml
+        run: sed -i 's|IMAGE_CORE_PLACEHOLDER|${{ vars.ECR_REPOSITORY_URL }}${{ vars.IMAGE_UPLOADS3 }}:1.0.1|g' .kube/app/app-deployment-video.yaml
 
 
       - name: Apply Kubernetes deployment video
